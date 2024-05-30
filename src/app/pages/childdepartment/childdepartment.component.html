@@ -1,1 +1,68 @@
-<p>childdepartment works!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="main-div" [ngClass]="showsidediv?'col-8':'col-12'">
+            <div class="card">
+                <div class="card-heading" style="background-color: orange;">
+                    <span class="heading" style="font-size: 40px;">Child-Department Info</span>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#childdeptform" (click)="Showsavebtn()" (click)="showsidediv=true" style="float: right;">Add Child-Department</button>
+                </div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>SrNo</th>
+            <th>Parent Department ID</th>
+            <th>Child-Department Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dept of childdeptList;let sr=index">
+          <td>{{sr+1}}</td>
+          <td>{{dept.parentDeptId}}</td>
+          <td>{{dept.departmentName}}</td>
+          <td>
+            <i class="fa-solid fa-pen-to-square m-1 bg-primary text-white p-2" data-bs-toggle="modal" data-bs-target="#childdeptform" (click)="onEdit(dept)" (click)="showupdatebtn()">Edit</i>
+            <i class="fa-solid fa-trash bg-danger m-1 text-white p-2" (click)="onDelete(dept)">Delete</i>
+          </td>
+        </tr>
+    </tbody>
+
+</table>
+</div>
+        </div>
+
+        <div class="col-4" *ngIf="showsidediv==true">
+            <div class="card">
+                <div class="card-heading" style="background-color: orange;">
+
+                    Add New Child-Department
+                   
+                    <button class="btn closebtn btn-danger" (click)="showsidediv=false" style="float: right;">Close</button>
+                </div>
+                <div class="card-body">
+            <form id="childdeptform">
+                <div class="row">
+                    <div class="col-12">
+                        <label>Parent-Department Name</label><br>
+                        <select name="parentdept" #parentdept="ngModel" [(ngModel)]="childdeptobj.parentDeptId">
+                            <option value="0" selected>Select Parent Department</option>
+                            <option *ngFor="let parentdept of parentdeptList" [value]="parentdept.departmentId">{{parentdept.departmentName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="">Sub-Department Name</label><br>
+                        <input type="text" name="subdeptnm" #subdeptnm="ngModel" [(ngModel)]="childdeptobj.departmentName">
+                    </div>
+                    <div class="col-12 m-1" style="background-color: lightcoral;">
+                        <button class="btn btn-success m-1" *ngIf="savebtn" (click)="onSave()">Submit</button>
+                        <button class="btn btn-info m-1" *ngIf="updatebtn" (click)="onUpdate()">Update</button>
+                        <button class="btn btn-danger m-1" (click)="onReset()">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
