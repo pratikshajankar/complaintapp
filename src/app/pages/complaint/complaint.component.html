@@ -1,1 +1,62 @@
-<p>complaint works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-heading" style="background-color: orange;">
+                   <span class="heading" style="font-size: 20px;"> Complaint Info</span>
+                   <button class="btn btn-primary" style="float: right;">Add Complaint</button>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>SrNo</th>
+                                <th>Complaint Title</th>
+                                <th>Complaint Details</th>
+                                <th>Created Date</th>
+                                <th>Complaint Status</th>
+                                <th>UserName</th>
+                                <th>Department Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let com of complaintList;let sr=index">
+                                <td>{{sr+1}}</td>
+                                <td>{{com.complaintTitle}}</td>
+                                <td>{{com.complaintDetails}}</td>
+                                <td>{{com.createdDate|date}}</td>
+                                <td>{{com.complaintStatus}}</td>
+                                <td>{{com.userName}}</td>
+                                <td>{{com.parentDepartmentName}}</td>
+                                <td>
+                                    <button class="btn btn-info m-1">Edit</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label>UserName</label>
+                            <select name="usernm" #usernm="ngModel" [(ngModel)]="complaintobj.userId">
+                                <option value="0" selected>Select UserName</option>
+                                <option ></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
