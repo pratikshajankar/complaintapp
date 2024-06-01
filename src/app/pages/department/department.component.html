@@ -19,8 +19,8 @@
           <td>{{sr+1}}</td>
           <td>{{dept.departmentName}}</td>
           <td>
-            <i class="fa-solid fa-pen-to-square m-1 bg-primary text-white p-2" data-bs-toggle="modal" data-bs-target="#parentdeptform" (click)="onEdit(dept)" (click)="showupdatebtn()">Edit</i>
-            <i class="fa-solid fa-trash bg-danger m-1 text-white p-2" (click)="onDelete(dept)">Delete</i>
+            <i class="fa-solid fa-pen-to-square m-1 bg-info text-white p-2" (click)="showsidediv=true"  (click)="onEdit(dept)" (click)="showupdatebtn()"></i>
+            <i class="fa-solid fa-trash bg-danger m-1 text-white p-2" (click)="onDelete(dept)"></i>
           </td>
         </tr>
     </tbody>
@@ -35,7 +35,7 @@
 
                     Add New Department
                    
-                    <button class="btn closebtn btn-danger" (click)="showsidediv=false" style="float: right;">Close</button>
+                    <button class="btn closebtn btn-danger" (click)="showsidediv=false" style="float: right;"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div class="card-body">
             <form id="parentdeptform">

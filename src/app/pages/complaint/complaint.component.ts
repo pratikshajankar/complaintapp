@@ -19,6 +19,9 @@ import { IStatus } from '../../core/models/interfaces/IStatus';
 })
 export class ComplaintComponent implements OnInit {
 
+  savebtn:boolean=false;
+  updatebtn:boolean=false;
+
   userList:IUser[]=[];
   statusList:IStatus[]=[];
 
@@ -31,6 +34,7 @@ export class ComplaintComponent implements OnInit {
   ngOnInit(): void {
   this.getallComplaint();
   this.getAlluser();
+  this.getStatus();
   }
 
   getallComplaint(){
@@ -43,6 +47,66 @@ export class ComplaintComponent implements OnInit {
     this.usersrv.getAllUser().subscribe((res:any)=>{
       this.userList=res.data;
     })
+  }
+
+  getStatus(){
+    this.complaintsrv.getStatus().subscribe((res:any)=>{
+      this.statusList=res.data;
+    })
+  }
+
+  onSave(){
+    this.complaintsrv.AddComplaint(this.complaintobj).subscribe((res:any)=>{
+      if(res.result){
+        alert("data saved successfully")
+        this.getallComplaint();
+      }
+      else{
+        alert(res.message);
+      }
+    })
+  }
+
+  onEdit(id:any){
+this.complaintobj=id;
+  }
+
+  onUpdate(){
+    this.complaintsrv.UpdateComplaint(this.complaintobj).subscribe((res:any)=>{
+      if(res.result){
+        alert("data updated successfully");
+        this.getallComplaint();
+      }
+      else{
+        alert(res.message);
+      }
+    })
+  }
+
+  onDelete(id:any){
+this.complaintsrv.DeleteComplaint(id.complaintId).subscribe((res:any)=>{
+if(res.result){
+  alert("data deleted successfully");
+  this.getallComplaint();
+}
+else{
+  alert(res.message);
+}
+})
+  }
+
+  onReset(){
+    this.complaintobj=new Complaint();
+  }
+
+  showupdatebtn(){
+this.savebtn=false;
+this.updatebtn=true;
+  }
+
+  showsavebtn(){
+    this.savebtn=true;
+    this.updatebtn=false;
   }
 
 }

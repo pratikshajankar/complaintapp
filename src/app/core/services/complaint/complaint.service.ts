@@ -32,4 +32,8 @@ export class ComplaintService {
   getComplaintReceivedbyDept(){
     return this.http.get(APIConstant.API_URL+APIConstant.GET_COMPLAINT_RECEIVED_BY_DEPT);
   }
+
+  getStatus(){
+    return this.http.get(APIConstant.API_URL+APIConstant.GET_COMPLAINT_STATUS);
+  }
 }
