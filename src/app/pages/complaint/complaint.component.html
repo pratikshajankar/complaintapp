@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-heading" style="background-color: orange;">
                    <span class="heading" style="font-size: 20px;"> Complaint Info</span>
-                   <button class="btn btn-primary" style="float: right;">Add Complaint</button>
+                   <button class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#complaintform">Add Complaint</button>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
@@ -30,7 +30,7 @@
                                 <td>{{com.userName}}</td>
                                 <td>{{com.parentDepartmentName}}</td>
                                 <td>
-                                    <button class="btn btn-info m-1">Edit</button>
+                                    <button class="btn btn-info m-1" data-bs-toggle="modal" data-bs-target="#complaintform">Edit</button>
                                     <button class="btn btn-danger">Delete</button>
                                 </td>
                             </tr>
@@ -41,22 +41,66 @@
         </div>
     </div>
 
-    <div class="modal">
+
+    <div class="modal" id="complaintform">
         <div class="modal-dialog">
             <div class="modal-content">
+                <div class="modal-header">
+                    Add New Complaint
+                </div>
                 <div class="modal-body">
+                    <form #myform="ngForm">
                     <div class="row">
                         <div class="col-6">
                             <label>UserName</label>
                             <select name="usernm" #usernm="ngModel" [(ngModel)]="complaintobj.userId">
                                 <option value="0" selected>Select UserName</option>
-                                <option ></option>
+                                <option *ngFor="let user of userList" [value]="user.userId">{{user.userName}}</option>
                             </select>
                         </div>
+                        <div class="col-6">
+                            <label for="">Create Date</label>
+                            <input type="text" name="date" #date="ngModel" [(ngModel)]="complaintobj.createdDate">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Complaint Title</label>
+                            <input type="text" name="title" #title="ngModel" [(ngModel)]="complaintobj.complaintTitle">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Complaint No</label>
+                            <input type="text" name="cno" #cno="ngModel" [(ngModel)]="complaintobj.complaintNo">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Complaint Details</label>
+                            <input type="text" name="cdetails" #cdetails="ngModel" [(ngModel)]="complaintobj.complaintDetails">
+                        </div>
+                        <div class="col-6">
+                            <label for="">isAlreadyReportedThis</label>
+                            <input type="checkbox" name="alreadyrepo" #alreadyrepo="ngModel" [(ngModel)]="complaintobj.isAlreadyReportedThis">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Old Complaint No</label>
+                            <input type="text" name="oldcno" #oldcno="ngModel" [(ngModel)]="complaintobj.oldComplaintNo">
+                        </div>
+                        <div class="col-6">
+                            <label>Complaint Status</label>
+                            <select name="cstatus" #cstatus="ngModel" [(ngModel)]="complaintobj.complaintStatusId">
+                                <option value="0" selected>Select Status</option>
+                                <option *ngFor="let status of statusList" [value]="status.masterId">{{status.masterName}}</option>
+                            </select>
+                        </div>
+                        
                     </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success">Submit</button>
+                    <button class="btn btn-info ">Update</button>
+                    <button class="btn btn-danger">Reset</button>
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+
