@@ -1,1 +1,89 @@
-<p>user works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-heading text-center" style="font-size: 20px;background-color: orange;">
+                    Employee Info
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>SrNo</td>
+                                <td>Full Name</td>
+                                <td>Email ID</td>
+                                <td>Role</td>
+                                <td>UserName</td>
+                                <td>Password</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of userList; let sr=index">
+                                <td>{{sr+1}}</td>
+                                <td>{{user.fullName}}</td>
+                                <td>{{user.emailId}}</td>
+                                <td>{{user.role}}</td>
+                                <td>{{user.userName}}</td>
+                                <td>{{user.password}}</td>
+                                <td>
+                                    <i class="fa-solid fa-pen-to-square m-1 bg-info text-white p-2" data-bs-toggle="modal" data-bs-target="#userform" (click)="onEdit(user)"></i>
+                                    <i class="fa-solid fa-trash bg-danger m-1 text-white p-2" (click)="onDelete(user)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="userform">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: orange;font-size: 20px;">
+                    Update User
+                    <button class="btn closebtn btn-danger"  style="float: right;"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form #form="ngForm">
+                           <div class="row">
+                            <div class="col-6">
+                                <label for="">Full Name</label><br>
+                                <input type="text" name="fullnm" #fullnm="ngModel" [(ngModel)]="userobj.fullName">
+                            </div>
+                            <div class="col-6">
+                                <label for="">Email ID</label><br>
+                                <input type="text" name="email" #email="ngModel" [(ngModel)]="userobj.emailId">
+                            </div>
+                            <div class="col-6">
+                                <label for="">Create Date</label><br>
+                                <input type="date" name="date" #date="ngModel" [(ngModel)]="userobj.createdDate">
+                            </div>
+                            <div class="col-6">
+                                <label for="">Role</label><br>
+                                <input type="text" name="role" #role="ngModel" [(ngModel)]="userobj.role">
+                            </div>
+                            <div class="col-6">
+                                <label for="">UserName</label><br>
+                                <input type="text" name="usernm" #usernm="ngModel" [(ngModel)]="userobj.userName">
+                            </div>
+                            <div class="col-6"><br>
+                                <label for="">Password</label>
+                                <input type="text" name="password" #password="ngModel" [(ngModel)]="userobj.password">
+                            </div>
+                            <div class="col-6"><br>
+                                <label for="">Project Name</label>
+                                <input type="text" name="projectnm" #projectnm="ngModel" [(ngModel)]="userobj.projectName">
+                            </div>
+                           </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="background-color: pink;">
+                     <button class="btn btn-info" (click)="onUpdate()">Update</button>
+                     <button class="btn btn-danger" (click)="onreset()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
