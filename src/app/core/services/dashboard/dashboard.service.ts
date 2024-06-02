@@ -13,7 +13,7 @@ export class DashboardService {
     return this.http.get(APIConstant.API_URL+APIConstant.ADMIN_DASH);
   }
 
-  getEmployeeDash(){
-    return this.http.get(APIConstant.API_URL+APIConstant.USER_DASH);
+  getEmployeeDash(eid:any){
+    return this.http.get(APIConstant.API_URL+APIConstant.USER_DASH+eid);
   }
 }

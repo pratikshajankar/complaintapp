@@ -4,6 +4,8 @@ import { LoginService } from '../../core/services/login.service';
 import { Router } from '@angular/router';
 import { Login } from '../../core/models/classes/login';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../core/services/user/user.service';
+import { User } from '../../core/models/classes/User';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +17,15 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent  {
 
 
+  userObj:User=new User();
+
+
   showLogin:boolean=true;
 
 
 loginobj:Login=new Login()
 
-constructor(private loginsrv:LoginService,private router:Router){}
+constructor(private loginsrv:LoginService,private router:Router,private usersrv:UserService){}
 
  login(){
 this.loginsrv.getlogin(this.loginobj).subscribe((res:any)=>{
@@ -38,7 +43,21 @@ this.loginsrv.getlogin(this.loginobj).subscribe((res:any)=>{
 })
   }
 
+  Registration(){
+    this.usersrv.AddUser(this.userObj).subscribe((res:any)=>{
+      if(res.result){
+        alert("User Added Successfully");
+      }
+      else{
+        alert(res.message);
+      }
+    })
+    }
+ 
+
   toggleForms() {
     this.showLogin = !this.showLogin;
   }
+
 }
+

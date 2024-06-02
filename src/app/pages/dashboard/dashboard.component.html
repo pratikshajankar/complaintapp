@@ -1,1 +1,172 @@
-<p>dashboard works!</p>
+
+    <div class="container m-3" *ngIf="role=='Admin'">
+       <h4>Admin Dashboard</h4>
+    <div class="row">
+   <div class="col-md-6 col-xl-3" *ngIf="Adminobj.totalComplaints!==0">
+       <div class="card mb-3 widget-content" style="background-color: pink;">
+           <div class="widget-content-wrapper text-dark">
+               <div class="widget-content-left">
+                   <div class="widget-subheading">Total Complaints</div>
+               </div>
+               <div class="widget-content-right">
+                   <div class="widget-numbers text-white"><span>{{Adminobj.totalComplaints}}</span></div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <div class="col-md-6 col-xl-3" *ngIf="Adminobj.newComplaints!==0">
+    <div class="card mb-3 widget-content" style="background-color: lightgreen;">
+        <div class="widget-content-wrapper text-dark">
+            <div class="widget-content-left">
+                <div class="widget-subheading">New Complaints</div>
+            </div>
+            <div class="widget-content-right">
+                <div class="widget-numbers text-white"><span>{{Adminobj.newComplaints}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-xl-3" *ngIf="Adminobj.inProgressComplaints!==0">
+    <div class="card mb-3 widget-content" style="background-color: yellow;">
+        <div class="widget-content-wrapper text-dark">
+            <div class="widget-content-left">
+                <div class="widget-subheading">In-Progress Complaints</div>
+            </div>
+            <div class="widget-content-right">
+                <div class="widget-numbers text-white"><span>{{Adminobj.inProgressComplaints}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-xl-3" *ngIf="Adminobj.onHoldComplaints!==0">
+    <div class="card mb-3 widget-content" style="background-color:red;">
+        <div class="widget-content-wrapper text-dark">
+            <div class="widget-content-left">
+                <div class="widget-subheading">On-Hold Complaints</div>
+            </div>
+            <div class="widget-content-right">
+                <div class="widget-numbers text-white"><span>{{Adminobj.onHoldComplaints}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-xl-3" *ngIf="Adminobj.closedComplaints!==0">
+    <div class="card mb-3 widget-content" style="background-color: skyblue;">
+        <div class="widget-content-wrapper text-dark">
+            <div class="widget-content-left">
+                <div class="widget-subheading">Close Complaints</div>
+            </div>
+            <div class="widget-content-right">
+                <div class="widget-numbers text-white"><span>{{Adminobj.closedComplaints}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-xl-3" *ngIf="Adminobj.todayCount!==0">
+    <div class="card mb-3 widget-content" style="background-color: salmon;">
+        <div class="widget-content-wrapper text-dark">
+            <div class="widget-content-left">
+                <div class="widget-subheading">Today Count</div>
+            </div>
+            <div class="widget-content-right">
+                <div class="widget-numbers text-white"><span>{{Adminobj.todayCount}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+   </div>
+   </div>
+
+   <!-- Employee Dashboard -->
+
+   <div class="container m-3" *ngIf="role=='Employee'">
+    <h4>Employee Dashboard</h4>
+ <div class="row">
+<div class="col-md-6 col-xl-3" *ngIf="Empobj.totalComplaints!==0">
+    <div class="card mb-3 widget-content" style="background-color: pink;">
+        <div class="widget-content-wrapper text-dark">
+            <div class="widget-content-left">
+                <div class="widget-subheading">Total Complaints</div>
+            </div>
+            <div class="widget-content-right">
+                <div class="widget-numbers text-white"><span>{{Empobj.totalComplaints}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 col-xl-3" *ngIf="Empobj.newComplaints!==0">
+ <div class="card mb-3 widget-content" style="background-color: lightgreen;">
+     <div class="widget-content-wrapper text-dark">
+         <div class="widget-content-left">
+             <div class="widget-subheading">New Complaints</div>
+         </div>
+         <div class="widget-content-right">
+             <div class="widget-numbers text-white"><span>{{Empobj.newComplaints}}</span></div>
+         </div>
+     </div>
+ </div>
+</div>
+
+<div class="col-md-6 col-xl-3" *ngIf="Empobj.inProgressComplaints!==0">
+ <div class="card mb-3 widget-content" style="background-color: yellow;">
+     <div class="widget-content-wrapper text-dark">
+         <div class="widget-content-left">
+             <div class="widget-subheading">In-Progress Complaints</div>
+         </div>
+         <div class="widget-content-right">
+             <div class="widget-numbers text-white"><span>{{Empobj.inProgressComplaints}}</span></div>
+         </div>
+     </div>
+ </div>
+</div>
+
+<div class="col-md-6 col-xl-3" *ngIf="Empobj.onHoldComplaints!==0">
+ <div class="card mb-3 widget-content" style="background-color: red;">
+     <div class="widget-content-wrapper text-dark">
+         <div class="widget-content-left">
+             <div class="widget-subheading">On-Hold Complaints</div>
+         </div>
+         <div class="widget-content-right">
+             <div class="widget-numbers text-white"><span>{{Empobj.onHoldComplaints}}</span></div>
+         </div>
+     </div>
+ </div>
+</div>
+
+<div class="col-md-6 col-xl-3" *ngIf="Empobj.closedComplaints!==0">
+ <div class="card mb-3 widget-content" style="background-color: skyblue;">
+     <div class="widget-content-wrapper text-dark">
+         <div class="widget-content-left">
+             <div class="widget-subheading">Close Complaints</div>
+         </div>
+         <div class="widget-content-right">
+             <div class="widget-numbers text-white"><span>{{Empobj.closedComplaints}}</span></div>
+         </div>
+     </div>
+ </div>
+</div>
+
+<div class="col-md-6 col-xl-3" *ngIf="Empobj.todayCount!==0">
+ <div class="card mb-3 widget-content" style="background-color: salmon;">
+     <div class="widget-content-wrapper text-dark">
+         <div class="widget-content-left">
+             <div class="widget-subheading">Today Count</div>
+         </div>
+         <div class="widget-content-right">
+             <div class="widget-numbers text-white"><span>{{Empobj.todayCount}}</span></div>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+
+
+
+
