@@ -3,13 +3,13 @@ import { IUser } from '../../core/models/interfaces/IUser';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../../core/services/user/user.service';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { User } from '../../core/models/classes/User';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,DatePipe],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })

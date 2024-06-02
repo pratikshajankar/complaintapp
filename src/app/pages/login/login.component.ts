@@ -16,11 +16,9 @@ import { User } from '../../core/models/classes/User';
 })
 export class LoginComponent  {
 
+  currentForm:string='loginFrm';
 
   userObj:User=new User();
-
-
-  showLogin:boolean=true;
 
 
 loginobj:Login=new Login()
@@ -46,7 +44,7 @@ this.loginsrv.getlogin(this.loginobj).subscribe((res:any)=>{
   Registration(){
     this.usersrv.AddUser(this.userObj).subscribe((res:any)=>{
       if(res.result){
-        alert("User Added Successfully");
+        alert("Registration Successfully");
       }
       else{
         alert(res.message);
@@ -55,9 +53,12 @@ this.loginsrv.getlogin(this.loginobj).subscribe((res:any)=>{
     }
  
 
-  toggleForms() {
-    this.showLogin = !this.showLogin;
-  }
+    openForm(event: Event, loginFrm:string){
+      event.preventDefault();
+      this.currentForm=loginFrm;
+    }
+
+   
 
 }
 

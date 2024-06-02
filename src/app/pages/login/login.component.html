@@ -7,10 +7,11 @@
             alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <div *ngIf="showLogin">
-          <form id="loginFrm">
+          <div>
+          <form *ngIf="currentForm==='loginFrm'" id="loginFrm">
+            <h2>Login</h2>
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start" style="font-size: 30px;">
-              Login 
+              
             </div>
            
             <!-- Email input -->
@@ -30,26 +31,21 @@
             <div class="text-center text-lg-start mt-4 pt-2">
               <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="login()">Login</button>
-              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!" class="link-danger"
-                  onclick="showRegister()" (click)="toggleForms()" >Register</a></p>
+              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#" class="link-danger"
+                 (click)="openForm($event,'registerFrm')" >Register</a></p>
             </div>
 
           </form>
         </div>
 
-<div *ngIf="!showLogin">
-          <form id="registerFrm">
+<div>
+          <form *ngIf="currentForm==='registerFrm'" id="registerFrm">
+            <h2>Registration</h2>
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
               <p class="lead fw-normal mb-0 me-3"> </p>
               
             </div>
-
-            <div class="divider d-flex align-items-center my-4">
-              <h3>Register</h3>
-            </div>
-            <section>
-
-            </section>
+            
             <!-- Email input -->
             <div class="form-outline ">
               <input type="email" id="form3Example3" class="form-control form-control-lg"
@@ -76,8 +72,8 @@
             <div class="text-center text-lg-start mt-2 pt-2">
               <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
              (click)="Registration()"  style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
-              <p class="small fw-bold mt-2 pt-1 mb-0">If You Alreay Have an Account? <a href="#!" class="link-danger"
-               (click)="toggleForms()"    >Login</a></p>
+              <p class="small fw-bold mt-2 pt-1 mb-0">If You Alreay Have an Account? <a href="#" class="link-danger"
+               (click)="openForm($event,'loginFrm')" >Login</a></p>
             </div>
 
           </form>
