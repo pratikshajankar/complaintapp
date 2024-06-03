@@ -25,8 +25,8 @@ export class ComplaintService {
     return this.http.delete(APIConstant.API_URL+APIConstant.DELETE_COMPLAINT+id);
   }
 
-  getComplaintCreadedbyUser(){
-    return this.http.get(APIConstant.API_URL+APIConstant.GET_COMPLAINT_CREATED_BY_USER);
+  getComplaintCreadedbyUser(uid:any){
+    return this.http.get(APIConstant.API_URL+APIConstant.GET_COMPLAINT_CREATED_BY_USER+uid);
   }
 
   getComplaintReceivedbyDept(){
