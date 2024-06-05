@@ -2,13 +2,13 @@
     <div>
       
       <ul class="nav navbar-nav">
-        @for (menu of filteredmenu; track $index) {
-        <li class="nav-item active">
+        @for (  menu of filteredmenu; track $index) {
+        <li class="nav-item active" >
             <a class="nav-link" style="color: white;font-size: 15px;" [routerLink]="menu.path">{{menu.text}}</a>
         </li>
       }
       <li class="nav-item">
-        <a class="nav-link" style="margin-left: 1000px;color:white;" (click)="logout()">Log-Out</a>
+        <a class="nav-link" style="margin-left: 1300px;color:white;" (click)="logout()">Log-Out</a>
       </li>
       </ul>
     </div>

@@ -3,14 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../core/services/login.service';
 import { Router } from '@angular/router';
 import { Login } from '../../core/models/classes/login';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { UserService } from '../../core/services/user/user.service';
 import { User } from '../../core/models/classes/User';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,DatePipe],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -21,7 +21,7 @@ export class LoginComponent  {
   userObj:User=new User();
 
 
-loginobj:Login=new Login()
+loginobj:Login=new Login();
 
 constructor(private loginsrv:LoginService,private router:Router,private usersrv:UserService){}
 

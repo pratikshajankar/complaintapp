@@ -1,0 +1,8 @@
+.navbar{
+    background-color: purple;
+}
+
+.nav-link:hover{
+background-color: pink;
+color: black;
+}

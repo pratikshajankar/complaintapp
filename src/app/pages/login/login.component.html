@@ -46,25 +46,30 @@
               
             </div>
             
+            <div class="form-outline ">
+              <input type="date" id="form3Example3" class="form-control form-control-lg"
+            name="date" #name="ngModel"  [(ngModel)]="userObj.createdDate"  placeholder="" />
+              <label class="form-label" for="form3Example3">Create Date</label>
+            </div> 
             <!-- Email input -->
             <div class="form-outline ">
               <input type="email" id="form3Example3" class="form-control form-control-lg"
-              [(ngModel)]="userObj.emailId"  placeholder="Enter email" />
+             name="email" #email="ngModel" [(ngModel)]="userObj.emailId"  placeholder="Enter email" />
               <label class="form-label" for="form3Example3">Email address</label>
             </div> 
              <div class="form-outline ">
               <input type="email" id="form3Example3" class="form-control form-control-lg"
-              [(ngModel)]="userObj.fullName"   placeholder="Enter Full Name" />
+             name="name" #name="ngModel" [(ngModel)]="userObj.fullName"   placeholder="Enter Full Name" />
               <label class="form-label" for="form3Example3">Full Name</label>
             </div>  
             <div class="form-outline ">
               <input type="email" id="form3Example3" class="form-control form-control-lg"
-              [(ngModel)]="userObj.userName"   placeholder="Enter User Name" />
+             name="usernm" #usernm="ngModel" [(ngModel)]="userObj.userName"   placeholder="Enter User Name" />
               <label class="form-label" for="form3Example3">User Name</label>
             </div> 
             <div class="form-outline">
               <input type="password" id="form3Example4" class="form-control form-control-lg"
-              [(ngModel)]="userObj.password"   placeholder="Enter password" />
+             name="password" #password="ngModel" [(ngModel)]="userObj.password"   placeholder="Enter password" />
               <label class="form-label" for="form3Example4">Password</label>
             </div> 
            

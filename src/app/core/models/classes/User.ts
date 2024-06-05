@@ -5,7 +5,7 @@ export class User{
       "emailId": string;
       "fullName": string;
       "role":string;
-      "createdDate":string;
+      "createdDate": "2024-05-29T13:07:33.1";
       "password":string;
       "projectName":string;
 
@@ -15,7 +15,7 @@ export class User{
         this.emailId="";
         this.fullName="";
         this.role="";
-        this.createdDate="";
+        this.createdDate= "2024-05-29T13:07:33.1";
       }
 
 
