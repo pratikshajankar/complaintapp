@@ -13,6 +13,15 @@ export class ComplaintService {
     return this.http.get(APIConstant.API_URL+APIConstant.GET_ALL_COMPLAINT);
   }
 
+  getComplaintReceivedbyDept(){
+    return this.http.get(APIConstant.API_URL+APIConstant.GET_COMPLAINT_RECEIVED_BY_DEPT);
+  }
+
+  getComplaintCreadedbyUser(uid:any){
+    return this.http.get(APIConstant.API_URL+APIConstant.GET_COMPLAINT_CREATED_BY_USER+uid);
+  }
+
+
   AddComplaint(obj:any){
     return this.http.post(APIConstant.API_URL+APIConstant.ADD_COMPLAINT,obj)
   }
@@ -25,13 +34,7 @@ export class ComplaintService {
     return this.http.delete(APIConstant.API_URL+APIConstant.DELETE_COMPLAINT+id);
   }
 
-  getComplaintCreadedbyUser(uid:any){
-    return this.http.get(APIConstant.API_URL+APIConstant.GET_COMPLAINT_CREATED_BY_USER+uid);
-  }
-
-  getComplaintReceivedbyDept(){
-    return this.http.get(APIConstant.API_URL+APIConstant.GET_COMPLAINT_RECEIVED_BY_DEPT);
-  }
+ 
 
   getStatus(){
     return this.http.get(APIConstant.API_URL+APIConstant.GET_COMPLAINT_STATUS);

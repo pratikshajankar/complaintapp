@@ -12,6 +12,8 @@ export class Complaint{
   "complaintStatusId":  number;
   "complaintStatus":string;
   "userName":string;
+  "parentDepartmentName":string;
+  "departName":string;
 
   constructor(){
     this.complaintId=0;
@@ -26,6 +28,9 @@ export class Complaint{
     this.complaintStatusId=0;
     this.complaintStatus="";
     this.userName="";
+    this.parentDepartmentName="";
+    this.departName="";
+    
   }
 
 }

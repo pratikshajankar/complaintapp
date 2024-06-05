@@ -64,3 +64,8 @@
     font-size: 0.9em;
   }
 }
+
+.card-body{
+  height: 150px;
+  width: 150px;
+}
