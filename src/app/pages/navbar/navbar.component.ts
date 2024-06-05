@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
 
+logedUserData:any;
   menu:any=[];
   filteredmenu:any[]=[];
   role:string="";
@@ -20,6 +21,7 @@ export class NavbarComponent {
     this.menu=RoleConstant.menus;
     const userData=localStorage.getItem('localuserdata');
     if(userData!=null){
+      this.logedUserData=JSON.parse(userData);
       const parseobj=JSON.parse(userData);
       this.role=parseobj.role;
     }

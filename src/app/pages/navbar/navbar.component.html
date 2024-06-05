@@ -8,13 +8,15 @@
         </li>
       }
       <li class="nav-item">
-        <a class="nav-link" style="margin-left: 1300px;color:white;" (click)="logout()">Log-Out</a>
+        <a class="nav-link" style="color: white;margin-left: 1000px;"><i class="fa-solid fa-user"></i>{{logedUserData?.userName}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color:white;" (click)="logout()">Log-Out</a>
       </li>
       </ul>
     </div>
   </nav>
-
-  <div>
+  
     <router-outlet></router-outlet>
-  </div>
+  
 
