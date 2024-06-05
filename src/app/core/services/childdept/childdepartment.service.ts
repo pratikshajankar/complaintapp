@@ -13,6 +13,10 @@ export class ChilddepartmentService {
     return this.http.get(APIConstant.API_URL+APIConstant.GET_ALL_CHILD_DEPT);
   }
 
+  getChildDeptbyParentDept(pid:any){
+    return this.http.get(APIConstant.API_URL+APIConstant.GET_CHILDDEPT_BY_PARENTDEPTID+pid);
+  }
+
   AddChildDept(obj:any){
     return this.http.post(APIConstant.API_URL+APIConstant.ADD_CHILD_DEPT,obj)
   }

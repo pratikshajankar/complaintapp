@@ -6,6 +6,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ComplaintComponent } from './pages/complaint/complaint.component';
 import { DepartmentComponent } from './pages/department/department.component';
 import { ChilddepartmentComponent } from './pages/childdepartment/childdepartment.component';
+import { NewcomplaintComponent } from './pages/newcomplaint/newcomplaint.component';
+import { ComplaintlistComponent } from './pages/complaintlist/complaintlist.component';
 
 export const routes: Routes = [
 
@@ -34,6 +36,12 @@ export const routes: Routes = [
             },
             {
                 path:'childdepartment',component:ChilddepartmentComponent
+            },
+            {
+                path:'newcomplaint',component:NewcomplaintComponent
+            },
+            {
+                path:'complaintlist',component:ComplaintlistComponent
             }
         ]
     }

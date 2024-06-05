@@ -15,19 +15,26 @@ export const RoleConstant={
             text:'Department',
             roles:['Admin']
         },
-        {
-            path:'complaint',
-            text:'Complaint',
-            roles:['Employee','Admin']
-        },
+        // {
+        //     path:'complaint',
+        //     text:'Complaint',
+        //     roles:['Employee','Admin']
+        // },
         {
             path:'childdepartment',
             text:'Child-Department',
             roles:['Admin']
         },
         {
-            
-        }
+          path:'newcomplaint',
+          text:'New Complaint',
+          roles:['Employee']  
+        },
+        {
+            path:'complaintlist',
+            text:'Complaint List',
+            roles:['Employee','Admin']  
+          },
        
     ]
 }
